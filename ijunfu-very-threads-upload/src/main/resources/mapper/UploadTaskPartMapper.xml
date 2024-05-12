@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ijunfu.upload.mapper.UploadTaskPartMapper">
+    <resultMap id="BaseResultMap" type="com.ijunfu.upload.entity.UploadTaskPart">
+        <id column="task_part_id" property="taskPartId"/>
+        <result column="task_id" property="taskId"/>
+        <result column="part_index" property="partIndex"/>
+        <result column="part_path" property="partPath"/>
+        <result column="del_status" property="delStatus"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        task_part_id, task_id, part_index, part_path, del_status
+    </sql>
+
+
+</mapper>

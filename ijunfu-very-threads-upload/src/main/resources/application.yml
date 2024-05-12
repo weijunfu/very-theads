@@ -1,0 +1,34 @@
+server:
+  port: 7200 # 端口号
+
+spring:
+  main:
+    banner-mode: off  # 关闭SpringBoot Banner
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/upload?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+
+logging:
+  level:
+    root: info
+    com.ijunfu: debug
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+
+upload:
+  path: ./upload
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+  mapper-locations: classpath:mapper/**/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: del_status
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: off # 关闭MyBatis Plus的Banner

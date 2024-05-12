@@ -1,0 +1,18 @@
+
+### 1. 创建上传任务
+POST http://localhost:7200/upload/task
+Content-Type: application/json
+accept: application/json
+
+{
+  "fileName": "b.txt",
+  "partNums": "10",
+  "fileMd5": "kdskdsdksjdii3988dss"
+}
+
+
+### 2. 查看任务详情
+GET http://localhost:7200/upload/detail?taskId=1788838230441619458
+accept: application/json
+
+
