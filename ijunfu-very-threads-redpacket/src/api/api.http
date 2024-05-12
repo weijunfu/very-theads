@@ -1,0 +1,5 @@
+### 拆红包 - 小额
+GET http://localhost:7200/red-packet/unpack?money=10&total=5
+
+### 拆红包 - 大额
+GET http://localhost:7200/red-packet/unpack?money=100&total=8

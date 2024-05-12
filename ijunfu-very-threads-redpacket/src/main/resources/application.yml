@@ -1,0 +1,13 @@
+server:
+  port: 7200
+  name: Red Packet
+
+spring:
+  main:
+    banner-mode: off
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: 123456
+      database: 0
