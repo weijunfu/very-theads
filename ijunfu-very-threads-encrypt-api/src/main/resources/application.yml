@@ -1,0 +1,6 @@
+server:
+  port: 7200
+  name: Encrypt API
+  key: P4wiGBvk6gcLcLGMWAOXPQDnwZqqXLPR
+  secret: true
+

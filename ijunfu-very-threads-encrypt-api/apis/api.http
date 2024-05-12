@@ -1,0 +1,8 @@
+### Greeting
+GET http://localhost:7200/greeting
+content-type: application/json
+accept: application/json
+
+{
+  "name": "ijunfu"
+}
