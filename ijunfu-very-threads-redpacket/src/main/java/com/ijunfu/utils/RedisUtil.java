@@ -39,6 +39,11 @@ public class RedisUtil {
         redisTemplate.opsForValue().set(key, value);
     }
 
+    // 设置键值对（Double类型）
+    public void setDouble(String key, Double value) {
+        redisTemplate.opsForValue().set(key, value);
+    }
+
     // 获取键对应的值（Integer类型）
     public Integer getInteger(String key) {
         return (Integer) redisTemplate.opsForValue().get(key);

@@ -1,17 +1,23 @@
 package com.ijunfu;
 
+import com.ijunfu.common.id.NanoId;
 import com.ijunfu.common.utils.JsonUtil;
+import com.ijunfu.utils.RedPacketUtil;
 import com.ijunfu.utils.RedisUtil;
 import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -29,6 +35,9 @@ public class RedistTest {
 
     @Resource
     private RedisUtil redisUtil;
+
+    @Resource
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Test
     void testInteger() {
@@ -57,5 +66,43 @@ public class RedistTest {
         List<Object> list = redisUtil.lRange(key, 0, -1);
 
         log.info("{}", JsonUtil.toJson(list));
+    }
+
+    @Test
+    void testGetLua() throws IOException {
+
+        String unpackScript = IOUtils.toString(
+                RedPacketUtil.class.getClassLoader().getResourceAsStream("lua/unpack.lua"),
+                StandardCharsets.UTF_8
+        );
+
+        log.info("\n{}", unpackScript);
+    }
+
+    @Test
+    void testGetLua2() throws IOException {
+        String unpackScript = IOUtils.toString(new ClassPathResource("lua/unpack.lua").getInputStream(), StandardCharsets.UTF_8);
+
+        log.info("\n{}", unpackScript);
+    }
+
+    @Test
+    void unpack() throws IOException {
+        String idRedPacket = NanoId.randomNanoId();
+
+        redisUtil.setDouble(RedPacketUtil.RED_PACKET_AMOUNT_PREFIX_KEY + idRedPacket, 100.00);
+        redisUtil.setInteger(RedPacketUtil.RED_PACKET_TOTAL_PREFIX_KEY + idRedPacket, 10);
+
+        IntStream.range(0, 10)
+                .forEach(index ->{
+                    try {
+                        String unpack = RedPacketUtil.unpack(redisTemplate, idRedPacket, Long.valueOf(index));
+
+                        log.info("{}",  unpack);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+
     }
 }

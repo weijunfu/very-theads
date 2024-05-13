@@ -1,6 +1,14 @@
 package com.ijunfu.utils;
 
+import org.apache.commons.io.IOUtils;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.data.redis.core.script.RedisScript;
+
+import java.io.IOException;
 import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
@@ -17,6 +25,11 @@ import java.util.Vector;
 public class RedPacketUtil {
 
     private static final SecureRandom RANDOM = new SecureRandom();
+
+    public static final String RED_PACKET_UNPACK_SCRIPT = "lua/unpack.lua";
+    public static final String RED_PACKET_AMOUNT_PREFIX_KEY = "red-packet:amount:";
+    public static final String RED_PACKET_TOTAL_PREFIX_KEY = "red-packet:total:";
+    public static final String RED_PACKET_CONSUMER_PREFIX_KEY = "red-packet:consumer:";
 
     /**
      * @Title  : 预分配拆红包
@@ -52,6 +65,23 @@ public class RedPacketUtil {
         redPacketList.add(format(restAmount));
 
         return redPacketList;
+    }
+
+    public static String unpack(RedisTemplate redisTemplate,String idRedPacket, Long idUser) throws IOException {
+
+        String unpackScript = IOUtils.toString(new ClassPathResource(RED_PACKET_UNPACK_SCRIPT).getInputStream());
+
+        RedisScript<String> script = new DefaultRedisScript<>(unpackScript, String.class);
+
+        return (String) redisTemplate.execute(
+                script,
+                Arrays.asList(
+                        RED_PACKET_AMOUNT_PREFIX_KEY + idRedPacket,
+                        RED_PACKET_TOTAL_PREFIX_KEY + idRedPacket,
+                        RED_PACKET_CONSUMER_PREFIX_KEY + idRedPacket
+                ),
+                idUser
+        );
     }
 
     public static Double format(Double amount) {
