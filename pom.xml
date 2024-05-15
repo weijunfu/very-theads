@@ -27,6 +27,11 @@
         <module>ijunfu-very-threads-upload</module>
         <module>ijunfu-very-threads-encrypt-api</module>
         <module>ijunfu-very-threads-redpacket</module>
+        <module>ijunfu-very-threads-security</module>
+        <module>ijunfu-very-threads-security-default-user</module>
+        <module>ijunfu-very-threads-security-custom-user</module>
+        <module>ijunfu-very-threads-security-memory</module>
+        <module>ijunfu-very-threads-security-db</module>
     </modules>
 
     <dependencies>

@@ -1,0 +1,16 @@
+server:
+  port: 7200
+  name: 权限管理
+
+spring:
+  main:
+    banner-mode: off
+  thymeleaf:
+    cache: off
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    enabled: on
+  profiles:
+    active: dev
