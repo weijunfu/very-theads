@@ -60,7 +60,7 @@ public class SecurityConfig {
     }
 
     @Bean("userDetailsService")
-    public UserDetailsService userDetailsService(@Qualifier("passwordEncoder")PasswordEncoder passwordEncoder) {
+    public UserDetailsService userDetailsService() {
         // 基于数据库的用户管理
         return new DbUserDetailsManager();
     }
