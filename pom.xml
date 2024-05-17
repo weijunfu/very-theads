@@ -34,6 +34,7 @@
         <module>ijunfu-very-threads-security-db</module>
         <module>ijunfu-very-threads-security-login</module>
         <module>ijunfu-very-threads-cache-caffeine</module>
+        <module>ijunfu-very-threads-cache-caffeine-redis</module>
     </modules>
 
     <dependencies>
