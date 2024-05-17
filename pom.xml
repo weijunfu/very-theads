@@ -33,6 +33,7 @@
         <module>ijunfu-very-threads-security-memory</module>
         <module>ijunfu-very-threads-security-db</module>
         <module>ijunfu-very-threads-security-login</module>
+        <module>ijunfu-very-threads-cache-caffeine</module>
     </modules>
 
     <dependencies>

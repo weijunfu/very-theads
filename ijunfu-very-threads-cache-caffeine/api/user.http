@@ -1,0 +1,67 @@
+### 用户列表
+GET http://localhost:7200/user/list
+accept: application/json
+
+### 新增用户 - admin
+POST http://localhost:7200/user
+accept: application/json
+content-type: application/json
+
+{
+  "username": "admin",
+  "age": 18,
+  "birthday": "2020-01-09"
+}
+
+### 新增用户 - ijunfu
+POST http://localhost:7200/user
+accept: application/json
+content-type: application/json
+
+{
+  "username": "ijunfu",
+  "age": 16,
+  "birthday": "2022-01-09"
+}
+
+### 新增用户 - user
+POST http://localhost:7200/user
+accept: application/json
+content-type: application/json
+
+{
+  "username": "user",
+  "age": 12,
+  "birthday": "2008-07-11"
+}
+
+### 新增用户 - demo
+POST http://localhost:7200/user
+accept: application/json
+content-type: application/json
+
+{
+  "username": "demo",
+  "age": 10,
+  "birthday": "2006-12-17"
+}
+
+### 根据用户id查询用户信息 - demo
+GET http://localhost:7200/user?userId=1791361212582006785
+Accept-Charset: utf-8
+Accept: application/json
+
+### 修改用户名 demo -> demo01
+PUT http://localhost:7200/user
+Accept-Charset: utf-8
+Accept: application/json
+Content-Type: application/json
+
+{
+  "userId": "1791361212582006785",
+  "username": "demo01"
+}
+
+### 删除用户 - demo01
+DELETE http://localhost:7200/user?userId=1791365427874320385
+accept: application/json
