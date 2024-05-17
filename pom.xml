@@ -16,7 +16,7 @@
         <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
-        <spring-boot.version>3.2.5</spring-boot.version>
+        <spring-boot.version>3.1.11</spring-boot.version>
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <mysql.version>8.0.33</mysql.version>
@@ -32,6 +32,7 @@
         <module>ijunfu-very-threads-security-custom-user</module>
         <module>ijunfu-very-threads-security-memory</module>
         <module>ijunfu-very-threads-security-db</module>
+        <module>ijunfu-very-threads-security-login</module>
     </modules>
 
     <dependencies>
