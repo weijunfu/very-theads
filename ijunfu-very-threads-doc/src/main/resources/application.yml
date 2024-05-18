@@ -1,0 +1,16 @@
+server:
+  port: 7200
+
+
+logging:
+  level:
+    root: info
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+    com.ijunfu: debug
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+  api-docs:
+    enabled: false
