@@ -1,24 +1,32 @@
-package com.ijunfu.config;
 
-import io.swagger.v3.oas.models.ExternalDocumentation;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Contact;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.License;
-import org.springdoc.core.models.GroupedOpenApi;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+# 集成 SpringDoc
 
-/**
- *
- * @Title  : 
- *
- * @Author : ijunfu <ijunfu@163.com>
- * @Date   : 2024/5/18 17:42
- * @Version: 1.0
- * @Motto  : 简洁的代码是智慧的结晶 卓越的编码是对复杂性的优雅征服
- *
- */
+## 引入依赖
+
+```xml
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.5.0</version>
+</dependency>
+```
+
+## 编辑配置文件
+```yaml
+server:
+  port: 7200
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+  api-docs:
+    enabled: false
+```
+
+## 新增配置类
+
+```java
 @Configuration
 public class DocConfig {
 
@@ -56,3 +64,8 @@ public class DocConfig {
                         );
     }
 }
+```
+
+## 启动项目
+
+访问 http://localhost:7200/swagger-ui/index.html
