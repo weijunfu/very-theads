@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "my")
 public class ShowInfoConfiguration {
 
-    private Boolean enable = Boolean.TRUE;
+    private Boolean enable;
     private String info;
 
 }
