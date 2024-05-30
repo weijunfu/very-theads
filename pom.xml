@@ -14,6 +14,8 @@
     <properties>
         <java.version>21</java.version>
         <encoding>UTF-8</encoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
         <spring-boot.version>3.1.11</spring-boot.version>
@@ -36,6 +38,8 @@
         <module>ijunfu-very-threads-cache-caffeine</module>
         <module>ijunfu-very-threads-cache-caffeine-redis</module>
         <module>ijunfu-very-threads-doc</module>
+        <module>ijunfu-very-threads-mail</module>
+        <module>ijunfu-very-threads-starter</module>
     </modules>
 
     <dependencies>

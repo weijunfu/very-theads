@@ -1,0 +1,25 @@
+
+spring:
+  main:
+    banner-mode: off
+  mail:
+    protocol: smtp
+    host: smtp.sina.com
+    port: 465
+    username: ijunfu@sina.com
+    password: <password>
+    default-encoding: UTF-8
+    properties:
+      mail:
+        debug: true
+        smtp:
+          timeout: 300000
+          connectiontimeout: 300000
+          writetimeout: 300000
+          ssl:
+            enable: true
+          starttls:
+            enable: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+
