@@ -41,6 +41,8 @@
         <module>ijunfu-very-threads-mail</module>
         <module>ijunfu-very-threads-starter</module>
         <module>ijunfu-very-threads-starter-test</module>
+        <module>ijunfu-very-threads-starter-enable</module>
+        <module>ijunfu-very-threads-starter-enable-test</module>
     </modules>
 
     <dependencies>
