@@ -40,6 +40,7 @@
         <module>ijunfu-very-threads-doc</module>
         <module>ijunfu-very-threads-mail</module>
         <module>ijunfu-very-threads-starter</module>
+        <module>ijunfu-very-threads-starter-test</module>
     </modules>
 
     <dependencies>
