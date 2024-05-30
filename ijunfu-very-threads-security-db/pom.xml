@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-security-db</artifactId>
-    <name>Chapter 5.4 基于数据库认证</name>
+    <name>Chapter 005.4 基于数据库认证</name>
     <description>基于数据库的用户管理</description>
 
     <dependencies>

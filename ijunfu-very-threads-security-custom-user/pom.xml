@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-security-custom-user</artifactId>
-    <name>Chapter 5.2 自定义用户</name>
+    <name>Chapter 005.2 自定义用户</name>
     <description>修改默认的用户名和密码</description>
 
     <dependencies>

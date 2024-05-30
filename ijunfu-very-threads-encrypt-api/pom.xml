@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-encrypt-api</artifactId>
-    <name>Chapter 3 请求加密</name>
+    <name>Chapter 003 请求加密</name>
     <description>API请求加密</description>
 
     <dependencies>

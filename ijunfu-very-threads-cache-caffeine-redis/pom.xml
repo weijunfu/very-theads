@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-cache-caffeine-redis</artifactId>
-    <name>Chapter 7 缓存 - Caffeine + Redis</name>
+    <name>Chapter 007 缓存 - Caffeine + Redis</name>
     <description>Caffeine + Redis 实现双缓存</description>
 
     <dependencies>

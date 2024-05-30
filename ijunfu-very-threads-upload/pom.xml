@@ -12,7 +12,7 @@
 
     <artifactId>ijunfu-very-threads-upload</artifactId>
 
-    <name>Chapter 2 分片上传</name>
+    <name>Chapter 002 分片上传</name>
     <description>分片上传</description>
     <properties>
         <java.version>21</java.version>

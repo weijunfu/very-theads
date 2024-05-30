@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-security</artifactId>
-    <name>Chapter 5 权限</name>
+    <name>Chapter 005 权限</name>
     <description>权限管理</description>
 
     <dependencies>

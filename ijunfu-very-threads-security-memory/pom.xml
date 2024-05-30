@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-security-memory</artifactId>
-    <name>Chapter 5.3 基于内存的权限认证</name>
+    <name>Chapter 005.3 基于内存的权限认证</name>
     <description>基于内存的用户管理</description>
 
     <dependencies>

@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-doc</artifactId>
-    <name>Chapter 8 Doc</name>
+    <name>Chapter 008 Doc</name>
     <description>集成SpringDoc</description>
 
     <dependencies>

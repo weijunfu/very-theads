@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-cache-caffeine</artifactId>
-    <name>Chapter 6 缓存 - Caffeine</name>
+    <name>Chapter 006 缓存 - Caffeine</name>
     <description>基于Caffeine实现缓存</description>
 
     <dependencies>

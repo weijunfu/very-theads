@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-security-default-user</artifactId>
-    <name>Chapter 5.1 默认用户</name>
+    <name>Chapter 005.1 默认用户</name>
     <description>SpringSecurity 默认用户和密码</description>
 
     <dependencies>

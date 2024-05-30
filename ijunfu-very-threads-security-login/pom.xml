@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>ijunfu-very-threads-security-login</artifactId>
-    <name>Chapter 5.5 自定义登录</name>
+    <name>Chapter 005.5 自定义登录</name>
     <description>自定义登录页面</description>
 
     <dependencies>

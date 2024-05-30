@@ -12,7 +12,7 @@
 
     <artifactId>ijunfu-very-threads-common</artifactId>
 
-    <name>Chapter 1 公共模块</name>
+    <name>Chapter 001 公共模块</name>
     <description>公共模块</description>
     <properties>
         <java.version>21</java.version>
