@@ -1,0 +1,11 @@
+### GET Home Page
+GET http://localhost:8080
+accept: application/json
+
+### add emp
+GET http://localhost:8080/emp/add
+accept: application/json
+
+### query emp
+GET http://localhost:8080/emp/query
+accept: application/json
