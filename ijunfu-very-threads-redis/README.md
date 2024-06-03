@@ -7,7 +7,7 @@
 
 ### <a href="#settings">2. 安装 & 配置</a>
 
-### 3. 数据类型
+### <a href="#dataType">3. 数据类型</a>
 
 ### 4. 持久化
 
@@ -115,5 +115,21 @@ Redis是一个内存数据库，它将数据保存在内存中，所以它非常
 + redis-cli：Redis客户端，操作入口
 + redis-sentinel：Redis集群监控工具
 + redis-server：Redis服务器启动命令
+
+## <h2 id="dataType">3. 数据类型</h2>
+> 我们这里说的数据类型是Value的数据类型，Key的类型是String（字符串）。
+
+[Data Type | https://redis.io/docs/data-types](https://redis.io/docs/data-types)
+
+### 3.1 String - 字符串
+`String`是redis中最基本的类型，一个Key对应一个Value。
+`String`类型是`二进制安全的`, 即Redis中可以包含任何数据，比如`图片、音频、视频、文档、序列化对象等。
+`String`类型是Redis最基本的数据类型，一个redis中字符串value最大可以存储512M。
+
+示例：
+```shell
+set author ijunfu
+get author
+```
 
 
