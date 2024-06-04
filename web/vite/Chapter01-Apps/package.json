@@ -1,0 +1,16 @@
+{
+  "name": "chapter01-apps",
+  "version": "1.0.0",
+  "description": "Vite多页面应用模式",
+  "main": "index.js",
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "ijunfu<ijunfu@163.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.1",
+    "vite": "^5.2.12"
+  }
+}
