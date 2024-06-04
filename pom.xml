@@ -46,6 +46,7 @@
         <module>ijunfu-very-threads-starter-log</module>
         <module>ijunfu-very-threads-starter-log-test</module>
         <module>ijunfu-very-threads-redis</module>
+        <module>ijunfu-very-threads-database-split</module>
     </modules>
 
     <dependencies>
