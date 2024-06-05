@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="ijunfu<ijunfu@163.com>">
+    <title>ijunfu|创建第一个vue应用</title>
+</head>
+<body>
+    <!-- 第三步：创建 #app，并渲染msg -->
+    <div id="app">
+        {{ msg }}
+    </div>
+
+    <!-- 第一步：引入vuejs -->
+    <script src="../libs/vue.global.js"></script>
+    <script>
+        // 第二步：创建Vue App并挂载到app
+        Vue.createApp({
+            setup() {
+                return {
+                    msg: 'Hello, World!'
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
