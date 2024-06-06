@@ -47,6 +47,7 @@
         <module>ijunfu-very-threads-starter-log-test</module>
         <module>ijunfu-very-threads-redis</module>
         <module>ijunfu-very-threads-database-split</module>
+        <module>ijunfu-very-threads-itext</module>
     </modules>
 
     <dependencies>
@@ -80,6 +81,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>8.4.0</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
@@ -92,11 +98,19 @@
     <repositories>
         <repository>
             <id>aliyun</id>
-            <url>https://maven.aliyun.com/nexus/content/groups/public</url>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+        <repository>
+            <id>aliyun-gradle-plugin</id>
+            <url>https://maven.aliyun.com/repository/gradle-plugin</url>
         </repository>
         <repository>
             <id>oss-public</id>
             <url>https://oss.sonatype.org/content/repositories/public</url>
+        </repository>
+        <repository>
+            <id>Central Repository</id>
+            <url>https://repo1.maven.org/maven2/</url>
         </repository>
         <repository>
             <id>snapshot</id>
