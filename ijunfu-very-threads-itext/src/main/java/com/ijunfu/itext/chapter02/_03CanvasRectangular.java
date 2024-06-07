@@ -1,6 +1,5 @@
 package com.ijunfu.itext.chapter02;
 
-import com.itextpdf.kernel.colors.DeviceCmyk;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfPage;
@@ -10,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  *
- * @title  : 使用Canvas绘制矩形：正方形
+ * title  : 使用Canvas绘制矩形：正方形
  *
  * @author : ijunfu <ijunfu@163.com>
  * @date   : 2024/6/7 12:14
