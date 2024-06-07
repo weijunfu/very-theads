@@ -10,12 +10,12 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  *
- * @Title  : 使用Canvas绘制矩形：正方形
+ * @title  : 使用Canvas绘制矩形：正方形
  *
- * @Author : ijunfu <ijunfu@163.com>
- * @Date   : 2024/6/7 12:14
- * @Version: 1.0
- * @Motto  : 简洁的代码是智慧的结晶 卓越的编码是对复杂性的优雅征服
+ * @author : ijunfu <ijunfu@163.com>
+ * @date   : 2024/6/7 12:14
+ * @version: 1.0
+ * @motto  : 简洁的代码是智慧的结晶 卓越的编码是对复杂性的优雅征服
  *
  */
 @Slf4j
