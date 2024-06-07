@@ -23,7 +23,7 @@ public class _01HelloWorld {
 
     public static void main(String[] args) throws FileNotFoundException {
         // Step 1: 输出器
-        PdfWriter pdfWriter = new PdfWriter("E:/itext/01.ebooks_helloworld.pdf");
+        PdfWriter pdfWriter = new PdfWriter("E:/itext/ebooks_01.helloworld.pdf");
 
         // Step 2: 创建PDF文档
         PdfDocument pdfDocument = new PdfDocument(pdfWriter);
