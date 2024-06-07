@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 /**
  *
  * title  : 使用Canvas绘制矩形：正方形
- *
  * author : ijunfu <ijunfu@163.com>
  * date   : 2024/6/7 12:14
  * version: 1.0
