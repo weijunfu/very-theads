@@ -12,7 +12,6 @@ import com.itextpdf.kernel.pdf.annot.PdfTextAnnotation;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
 
-import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -28,7 +27,7 @@ import java.io.IOException;
 public class _01TextAnno {
 
     public static void main(String[] args) throws IOException {
-//        genPdf();
+        genPdf();
 
         addTextAnno();
     }
