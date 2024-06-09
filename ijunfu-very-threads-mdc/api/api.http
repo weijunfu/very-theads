@@ -1,0 +1,7 @@
+### 普通请求
+GET http://localhost:9000/test
+accept: application/json
+
+### 异步任务
+GET http://localhost:9000/test/async
+accept: application/json

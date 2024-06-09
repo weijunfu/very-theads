@@ -1,0 +1,15 @@
+
+spring:
+  application:
+    name: mdc-demo
+  main:
+    banner-mode: off
+
+logging:
+  level:
+    root: info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %mdc{traceId:-} %mdc{ts:-} [%thread] %logger{36} - %msg%n"
+
+server:
+  port: 9000

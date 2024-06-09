@@ -48,6 +48,7 @@
         <module>ijunfu-very-threads-redis</module>
         <module>ijunfu-very-threads-database-split</module>
         <module>ijunfu-very-threads-itext</module>
+        <module>ijunfu-very-threads-mdc</module>
     </modules>
 
     <dependencyManagement>
