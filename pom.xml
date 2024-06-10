@@ -22,6 +22,8 @@
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <mysql.version>8.4.0</mysql.version>
+        <jasypt.version>1.9.3</jasypt.version>
+        <commons-codec.version>1.17.0</commons-codec.version>
     </properties>
 
     <modules>
@@ -49,10 +51,21 @@
         <module>ijunfu-very-threads-database-split</module>
         <module>ijunfu-very-threads-itext</module>
         <module>ijunfu-very-threads-mdc</module>
+        <module>ijunfu-very-threads-jasypt</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jasypt</groupId>
+                <artifactId>jasypt</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.mysql</groupId>
                 <artifactId>mysql-connector-j</artifactId>
