@@ -1,0 +1,11 @@
+
+user:
+  name: ijunfu
+  password: ENC(FrxjGPWsAQYvZFOFxZ+tScux7UTLH5v3zNUB5N9Q2inkQfc/SYCGFYm1Jbps6OZi)
+
+jasypt:
+  encryptor:
+    property:
+      prefix: ENC(
+      suffix: )
+    password: wpmfI3Ruh5UBvVXoSPvCLPBL70x57spoBmIGtncIsYuvnnwWUJU4kt2g8loItntg

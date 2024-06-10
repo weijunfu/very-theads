@@ -52,6 +52,7 @@
         <module>ijunfu-very-threads-itext</module>
         <module>ijunfu-very-threads-mdc</module>
         <module>ijunfu-very-threads-jasypt</module>
+        <module>ijunfu-very-threads-jasypt-starter</module>
     </modules>
 
     <dependencyManagement>
