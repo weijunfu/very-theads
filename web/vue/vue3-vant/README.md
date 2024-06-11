@@ -87,4 +87,45 @@ bun add vant
 ```
 
 
+### 2.3 按需引入
 
+#### 安装插件
+```
+# 通过 npm 安装
+npm i @vant/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
+
+# 通过 yarn 安装
+yarn add @vant/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
+
+# 通过 pnpm 安装
+pnpm add @vant/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
+
+# 通过 bun 安装
+bun add @vant/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
+
+```
+
+#### 配置插件
+
+```
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { VantResolver } from '@vant/auto-import-resolver';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    vue(),
+    AutoImport({
+      resolvers: [ VantResolver() ]
+    }),
+    Components({
+      resolvers: [ VantResolver() ]
+    })
+  ],
+})
+
+```
