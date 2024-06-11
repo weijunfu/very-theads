@@ -129,3 +129,59 @@ export default defineConfig({
 })
 
 ```
+
+## 三、适配
+
+### 3.1 移动端Rem适配
+如果需要使用`rem`单位进行适配，推荐使用以下两个工具：
++ `postcss-pxtorem`是一款PostCSS插件，用于将`px`单位转化为`rem`单位
++ `lib-flexible`用于设置`rem`的基准值
+
+#### PostCSS示例配置
+下面提供了一份基本的 PostCSS 示例配置，可以在此配置的基础上根据项目需求进行修改。
+```javascript
+// postcss.config.js
+module.exports = {
+  plugins: {
+    'postcss-pxtorem': {
+      rootValue: 37.5,
+      propList: ['*'],
+    },
+  },
+};
+
+```
+
+> Tips: 在配置 postcss-pxtorem 时，同样应避免 ignore node_modules 目录，否则会导致 Vant 样式无法被编译。
+
+#### 其他设计稿尺寸
+如果设计稿的尺寸不是`375`，而是`750`或其他大小，可以将`rootValue`配置调整为:
+```
+// postcss.config.js
+module.exports = {
+  plugins: {
+    // postcss-pxtorem 插件的版本需要 >= 5.0.0
+    'postcss-pxtorem': {
+      rootValue({ file }) {
+        return file.indexOf('vant') !== -1 ? 37.5 : 75;
+      },
+      propList: ['*'],
+    },
+  },
+};
+```
+
+### 3.2 桌面端适配
+Vant是一个面向移动端的组件库，因此默认只适配了移动端设备，这意味着组件只监听了移动端的`touch`事件，没有监听桌面端的`mouse`事件。
+
+如果你需要再桌面端使用Vant，可以引入`@vant/touch-emulator`，这个库会在桌面端自动将`mouse`事件转换成对应的`touch`事件，使得这个组件能够在桌面端使用。
+
+```
+# 安装模块
+npm i @vant/touch-emulator -S
+```
+
+```
+// 引入模块后自动生效
+import '@vant/touch-emulator';
+```
