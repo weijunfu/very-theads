@@ -4,6 +4,11 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 // Step 1 创建路由规则
 const routes = [
     {
+        path: '/',
+        name: 'Home',
+        component: () => import("../views/index.vue")
+    },
+    {
         path: '/login',
         name: 'Login',
         component: () => import("../views/login/index.vue")
