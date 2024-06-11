@@ -16,6 +16,9 @@
   "devDependencies": {
     "@vant/auto-import-resolver": "^1.2.1",
     "@vitejs/plugin-vue": "^5.0.4",
+    "postcss": "^8.4.38",
+    "postcss-pxtorem": "^6.1.0",
+    "sass": "^1.77.4",
     "typescript": "^5.2.2",
     "unplugin-auto-import": "^0.17.6",
     "unplugin-vue-components": "^0.27.0",

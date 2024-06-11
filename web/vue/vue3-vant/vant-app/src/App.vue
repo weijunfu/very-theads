@@ -1,17 +1,36 @@
+<template>
+  <div>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+  </div>
+</template>
 <script setup lang="ts">
 
 </script>
+<style scoped lang="scss">
+div {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  .box {
+    height: 10px;
+  }
 
-<template>
-  <div>
-    <van-button type="primary">主要按钮</van-button>
-    <van-button type="success">成功按钮</van-button>
-    <van-button type="default">默认按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>
-    <van-button type="warning">警告按钮</van-button>
-  </div>
-</template>
+  .box1 {
+    width: 375px;
+    background-color: yellow;
+  }
 
-<style scoped>
+  .box2 {
+    width: 750px;
+    background-color: red;
+  }
 
+  .box3 {
+    width: 100%;
+    background-color: blue;
+  }
+}
 </style>
