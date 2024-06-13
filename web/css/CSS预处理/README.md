@@ -770,3 +770,43 @@ yarn config set registry https://registry.npm.taobao.org --global
 yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
 
 ```
+
+## 四、CSS架构
+
+在一个大型项目中，由于页面过多，导致CSS代码难以维护和开发。所以CSS架构可以帮助我们解决文件管理与文件划分等问题。
+首先，要对CSS进行模块化处理，一个模块负责一类操作行为。可利用Sass或Less实现。
+
+<table>
+    <tr>
+        <th>文件夹</th>
+        <th>含义</th>
+    </tr>
+    <tr>
+        <td>base</td>
+        <td>一些初始化的通用CSS，如重置默认颜色、动画、工具、打印等</td>
+    </tr>
+    <tr>
+        <td>components</td>
+        <td>用于构建页面的所有组件，如按钮、表单、表格、弹窗等</td>
+    </tr>
+    <tr>
+        <td>layout</td>
+        <td>用于布局页面的不同部分，如页眉、页脚、弹性布局、网格布局等</td>
+    </tr>
+    <tr>
+        <td>pages</td>
+        <td>放置页面之间不同的样式，如首页特殊样式，列表页特殊样式等</td>
+    </tr>
+    <tr>
+        <td>themes</td>
+        <td>应用不同的主题样式时，如暗黑模式</td>
+    </tr>
+    <tr>
+        <td>abstracts</td>
+        <td>放置一些变量、函数、响应式等辅助开发的部分</td>
+    </tr>
+    <tr>
+        <td>vendors</td>
+        <td>放置一些第三方独立的CSS文件，如BootStranp、jQuery、Iconfont等</td>
+    </tr>
+<table>
