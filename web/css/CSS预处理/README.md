@@ -501,3 +501,272 @@ $transform: (
 @import './reset.scss';
 
 ```
+
+## 二、PostCSS
+PostCSS本身使一个功能比较单一的工具。它提供了一种方式用JavaScript代码来处理CSS。利用PostCSS可以实现一些工程化的操作。如：自动添加浏览器前缀，代码合并、代码压缩等。
+
+[官网 | https://postcss.org](https://postcss.org)
+
+
+### 2.1 安装 & 配置
+
+#### 安装（NodeJS环境）
+
+```
+npm i -g postcss-cli
+```
+
+#### 配置
+```
+// postcss.config.js
+
+module.exports = {
+  plugins: {
+    // postcss-pxtorem 插件的版本需要 >= 5.0.0
+    'postcss-pxtorem': {
+      rootValue({ file }) { // 
+        return file.indexOf('vant') !== -1 ? 37.5 : 75;
+      },
+      propList: ['*'],  // Css样式转换的属性
+    },
+  },
+};
+
+```
+
+#### 使用
+```
+// 直接输出css文件
+postcss a.css -o a1.css
+
+// 实时监听文件变化
+postcss a.css -w a1.css
+```
+
+
+### 2.2 常见插件
+
+#### 搭建环境
+```
+// 创建项目文件夹
+mkdir postcss_demo
+cd postcss_demo
+
+// 初始化项目
+npm init --y
+
+// 安装PostCSS
+yarn add postcss autoprefixer
+```
+
+#### 2.2.1 autoprefixer 
+
+##### 安装
+```
+yarn add autoprefixer
+```
+
+##### 配置
+> `postcss.config.js`文件必须存放到项目根目录
+
+```
+// postcss.config.js
+const autoprefixer = require('autoprefixer')
+module.exports = {
+    plugins: [
+      autoprefixer({
+        browsers: [ '>0%']
+      })
+    ]
+  }
+```
+
+###### 示例代码
+```
+// src/demo.css
+body {
+    background-color: red;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    transform: translate(10px) scale(1.2);
+}
+```
+
+执行命令：`postcss src/demo.css -o dist/demo.css`
+
+查看`dist/demo.css`，文件内容如下：
+```
+body {
+    background-color: red;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    -webkit-transform: translate(10px) scale(1.2);
+       -moz-transform: translate(10px) scale(1.2);
+        -ms-transform: translate(10px) scale(1.2);
+            transform: translate(10px) scale(1.2);
+}
+```
+
+但上述命令运行后，会输出如下警告：
+![PostCSS Warnning](./images/postcss.png)
+说明我们最好不要把浏览的适配`browsers`写在`postcss.config.js`里，可以选择`package.json`或者`.browserslistrc`文件中进行配置.
+
+###### 在`package.json`中配置
+```
+// package.json
+
+{
+    "browserslist": [
+        "last 5 version",
+        "> 1%",
+        "ie >= 8"
+    ]
+}
+```
+
+###### 在`.browserslistrc`中配置
+
+```
+last 5 version
+> 1%
+ie >= 8
+```
+以上两种方式任选其一即可。
+
+> 注意：autoprefixer仅处理`.css`文件
+
+#### 2.2.2 postcss-import 合并样式 
+> 将通过`@import`导入的CSS样式文件直接合并到当前文件中。
+
+比如在`main.css`中使用`@import reset.css`。使用`postcss-import`之后，就会把`reset.css`中的样式直接合并到`main.css`中。
+
+##### 安装
+```
+yarn add postcss-import -D
+```
+
+##### 配置
+```
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('postcss-import'),  // 合并CSS样式
+  ]
+}
+```
+
+#### 2.2.3 cssnano 压缩css代码
+> 一个模块化的CSS压缩工具
+
+##### 安装
+```
+yarn add cssnano -D
+```
+
+##### 配置
+```
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('cssnano'),       // CSS压缩
+  ]
+}
+```
+
+#### 2.2.4 postcss-cssnext
+> 允许你在低版本浏览器使用高级的属性（包括autoprefixer）
+
+为了兼容低版本浏览器，可以使用`postcss-cssnext`进行降级处理。
+
+##### 安装
+```
+yarn add postcss-cssnext -D
+```
+##### 配置
+```
+// postcss.config.js
+module.exports = {
+  plugins: [
+    require('postcss-cssnext'), // 兼容低版本浏览器，降级处理
+  ]
+}
+```
+
+ 例如CSS3 变量在低版本浏览器中是不被支持的，使用`postcss-cssnext`降级处理之后，可支持低版本浏览器。
+
+#### 2.2.5 postcss-sprites 精灵图
+> 可以把很多小图合并成雪碧图
+
+参考：
++ [https://github.com/2createStudio/postcss-sprites](https://github.com/2createStudio/postcss-sprites)
+
+##### 安装
+```
+yarn add postcss-sprites -D
+```
+
+##### 配置
+```
+const sprites = require('postcss-sprites')
+module.exports = {
+  plugins: [
+    sprites({
+      spritePath: './dist/images',      // 雪碧图生成目录
+      stylesheetPath: './src/demo.css'  // 需要进行雪碧图处理的CSS文件
+    }), // 小图片合并成雪碧图
+  ]
+}
+```
+
+## 三、Yarn
+
+### 3.1 安装
+```
+npm i -g yarn
+```
+
+### 3.2 卸载
+```
+npm uninstall -g yarn
+```
+
+### 3.3 查看目录
+
+#### 查看全局安装包目录
+```
+yarn global dir
+```
+
+#### 查看yarn的bin目录
+```
+yarn global bin
+```
+
+### 3.4 移除模块
+
+```
+yarn global remove <module name>
+```
+
+### 3.5 清理缓存
+
+```
+yarn cache clean
+```
+
+### 3.6 配置源
+
+```
+yarn config set disturl https://npm.taobao.org/dist --global
+
+yarn config set registry https://registry.npm.taobao.org --global
+
+yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
+
+```

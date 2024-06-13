@@ -1,0 +1,27 @@
+{
+  "name": "postcss_demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "postcss src/demo.css -o dist/demo.css"
+  },
+  "keywords": [],
+  "author": "ijunfu<ijunfu@163.com>",
+  "license": "ISC",
+  "description": "PostCSS 学习示例代码",
+  "devDependencies": {
+    "cssnano": "^7.0.2",
+    "postcss-cssnext": "^3.1.1",
+    "postcss-import": "^16.1.0",
+    "postcss-sprites": "^4.2.1"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38"
+  },
+  "browserslist": [
+    "last 5 version",
+    "> 1%",
+    "ie >= 8"
+  ]
+}

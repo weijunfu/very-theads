@@ -1,0 +1,25 @@
+@import './reset.css';
+
+:root {
+    --theme-color: #f0f0f0;
+    --font-color: #333;
+}
+
+body {
+    background-color: var(--theme-color);
+    color: var(--font-color);
+    border-color: var(--font-color);
+}
+
+.box1 {
+    width: 200px;
+    height: 200px;
+    transform: translate(10px) scale(1.2);
+    background-image: url("./images/01.png");
+}
+
+.box2 {
+    width: 200px;
+    height: 200px;
+    background-image: url("./images/02.png");
+}
