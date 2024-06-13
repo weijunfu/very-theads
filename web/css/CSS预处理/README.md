@@ -774,8 +774,8 @@ yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
 ## 四、CSS架构
 
 在一个大型项目中，由于页面过多，导致CSS代码难以维护和开发。所以CSS架构可以帮助我们解决文件管理与文件划分等问题。
-首先，要对CSS进行模块化处理，一个模块负责一类操作行为。可利用Sass或Less实现。
 
+首先，要对CSS进行模块化处理，一个模块负责一类操作行为。可利用Sass或Less实现。
 <table>
     <tr>
         <th>文件夹</th>
@@ -810,3 +810,21 @@ yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
         <td>放置一些第三方独立的CSS文件，如BootStranp、jQuery、Iconfont等</td>
     </tr>
 <table>
+
+## 扩展
+
+### 滚动捕捉
+> CSS Scroll Snap(CSS滚动捕捉)允许你在用户完成滚动后，锁定特定的元素或位置
+
+示例：
+```css
+.parent {
+    scroll-snap-type: x mandatory;
+}
+
+.child {
+    scroll-snap-align: start;
+}
+```
+
++ `scroll-snap-align: start | center | end`
