@@ -22,6 +22,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <itext.version>8.0.4</itext.version>
+        <itext-html.version>5.0.4</itext-html.version>
     </properties>
 
     <dependencies>
@@ -46,6 +47,13 @@
             <version>${itext.version}</version>
             <type>pom</type>
         </dependency>
+
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>html2pdf</artifactId>
+            <version>${itext-html.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>bouncy-castle-adapter</artifactId>
