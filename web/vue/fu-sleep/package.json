@@ -1,0 +1,25 @@
+{
+  "name": "fu-sleep",
+  "version": "0.0.2",
+  "description": "VueJS休眠插件",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"author: ijunfu<ijunfu@163.com>\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weijunfu/very-theads.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "sleep",
+    "plugin"
+  ],
+  "author": "ijunfu <ijunfu@163.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weijunfu/very-theads/issues"
+  },
+  "homepage": "https://github.com/weijunfu/very-theads#readme"
+}
