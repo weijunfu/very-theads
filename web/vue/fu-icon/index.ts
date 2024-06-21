@@ -1,8 +1,8 @@
 
-import IconSvg from './components/Icon/IconSvg.vue'
+import FuIcon from './components/Icon/FuIcon.vue'
 
 export default {
     install: (app) => {
-        app.component('IconSvg', IconSvg)
+        app.component('FuIcon', FuIcon)
     }
 }

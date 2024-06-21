@@ -15,6 +15,9 @@ pnpm i fu-icon
 ## 配置
 ```
 // main.ts
+// 注册SVG
+import 'virtual:svg-icons-register'
+
 // 自定义Icon插件
 import FuIcon from 'fu-icon'
 app.use(FuIcon)
@@ -23,7 +26,6 @@ app.use(FuIcon)
 ## vite 配置
 ```
 //vite.config.ts
-
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 import path from 'path';
@@ -41,5 +43,5 @@ export default defineConfig({
 
 ## 使用
 ```
-<IconSvg icon-class="icon-weekly"></IconSvg>    // "icon-"与上述vite配置的前缀要保持一致；“weekly”为svg文件名称
+<FuIcon icon-class="icon-weekly"></FuIcon>    // "icon-"与上述vite配置的前缀要保持一致；“weekly”为svg文件名称
 ```
