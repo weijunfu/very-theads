@@ -1,0 +1,30 @@
+{
+  "name": "fu-youtube",
+  "version": "0.0.7",
+  "description": "[Vue3] Youtube Player Plugin",
+  "main": "index.ts",
+  "dependencies": {
+    "vue": "^3.4.30"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weijunfu/very-theads.git"
+  },
+  "keywords": [
+    "youtube",
+    "player",
+    "vue",
+    "vue3",
+    "plugin"
+  ],
+  "author": "ijunfu <ijunfu@163.com> (https://weijunfu.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weijunfu/very-theads/issues"
+  },
+  "homepage": "https://github.com/weijunfu/very-theads#readme"
+}
