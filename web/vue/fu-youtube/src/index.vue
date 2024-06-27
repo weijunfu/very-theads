@@ -1,15 +1,20 @@
 <template>
     <div class="player-wrapper">
-        <div class="youtube-player" ref="player"></div>
+        <!-- 封面 -->
+        <img :class="['youtube-poster', videoLoaded?'hidden':'']" :src="poster" alt="Youtube Poster,fu-youtube,ijunfu"/>
+        
+        <!-- 播放器 -->
+        <div :class="['youtube-player', videoLoaded?'':'hidden']" ref="playerRef"></div>
     </div>
 </template>
 <script setup lang="ts">
 
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 const emit = defineEmits(['onReady'])
 
-const player = ref(null)
+const playerRef = ref(null)
+const videoLoaded = ref(false)
 
 const props = defineProps({
     videoId: {
@@ -19,30 +24,47 @@ const props = defineProps({
     options: {
         type: Object,
         default: {}
-    }
+    },
+    // quality: {
+    //     type: String,
+    //     default: 'default' // 可以是 'small', 'medium', 'large', 'hd720', 'hd1080', 'highres'
+    // }
 })
 
+const poster = computed(() => `https://img.youtube.com/vi/${props.videoId}/maxresdefault.jpg`)
+
+let player = null
+
 function onPlayerReady(event) {
-    console.log('Youtube onReady');
+    
+    videoLoaded.value = true
+
     event.target.playVideo()
+    
     emit('onReady')
 }
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
-        console.log('play Youtube');
+        console.log('play Youtube ...');
     }
 }
 
+function onPlayerError(event) {
+    videoLoaded.value = false
+    console.error(`Youtube load error: ${event.data}`)
+}
+
 function initPlayer(){
-    if(player.value) {
-        this.player = new YT.Player(player.value, {
+    if(playerRef.value) {
+        player = new YT.Player(playerRef.value, {
             height: '100%',
             width: '100%',
             videoId: props.videoId,
             events: {
                 'onReady': onPlayerReady,
-                'onStateChange': onPlayerReady
+                'onStateChange': onPlayerStateChange,
+                'onError': onPlayerError
             },
             playerVars: props.options
         })
@@ -67,6 +89,11 @@ onMounted(() => {
 
 </script>
 <style scoped>
+
+.hidden {
+    display: none;
+}
+
 .player-wrapper {
     width: 100%;
     height: 100%;
@@ -74,6 +101,17 @@ onMounted(() => {
     overflow: hidden;
 }
 
+/* 视频封面 */
+.youtube-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Youtube 播放器 */
 .youtube-player {
     position: absolute;
     top: 0;

@@ -1,6 +1,6 @@
 {
   "name": "fu-youtube",
-  "version": "0.0.7",
+  "version": "0.0.16",
   "description": "[Vue3] Youtube Player Plugin",
   "main": "index.ts",
   "dependencies": {
