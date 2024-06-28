@@ -53,6 +53,7 @@
         <module>ijunfu-very-threads-mdc</module>
         <module>ijunfu-very-threads-jasypt</module>
         <module>ijunfu-very-threads-jasypt-starter</module>
+        <module>ijunfu-very-threads-pdfbox</module>
     </modules>
 
     <dependencyManagement>
