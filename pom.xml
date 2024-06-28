@@ -24,6 +24,7 @@
         <mysql.version>8.4.0</mysql.version>
         <jasypt.version>1.9.3</jasypt.version>
         <commons-codec.version>1.17.0</commons-codec.version>
+        <easy-poi.version>4.5.0</easy-poi.version>
     </properties>
 
     <modules>
@@ -54,10 +55,16 @@
         <module>ijunfu-very-threads-jasypt</module>
         <module>ijunfu-very-threads-jasypt-starter</module>
         <module>ijunfu-very-threads-pdfbox</module>
+        <module>ijunfu-very-threads-easypoi</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-spring-boot-starter</artifactId>
+                <version>${easy-poi.version}</version>
+            </dependency>
             <dependency>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
