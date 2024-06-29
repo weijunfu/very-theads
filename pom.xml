@@ -25,6 +25,7 @@
         <jasypt.version>1.9.3</jasypt.version>
         <commons-codec.version>1.17.0</commons-codec.version>
         <easy-poi.version>4.5.0</easy-poi.version>
+        <poi.version>5.2.5</poi.version>
     </properties>
 
     <modules>
@@ -56,10 +57,36 @@
         <module>ijunfu-very-threads-jasypt-starter</module>
         <module>ijunfu-very-threads-pdfbox</module>
         <module>ijunfu-very-threads-easypoi</module>
+        <module>ijunfu-very-threads-poi</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-scratchpad</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>cn.afterturn</groupId>
                 <artifactId>easypoi-spring-boot-starter</artifactId>
