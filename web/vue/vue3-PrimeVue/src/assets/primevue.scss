@@ -1,0 +1,73 @@
+// 按 750px => 1rem = 100px 设计稿 重新设置大小
+
+// 所有“p-”的class属性，文字大小修改为0.12rem
+[class^='p-'] {
+  font-size: 0.12rem;
+}
+
+.pi {
+  font-size: 0.12rem;
+}
+
+// 按钮
+.p-button {
+  padding: 0.1rem 0.5rem;
+}
+
+.p-button.p-button-success:not(:disabled):focus,
+.p-button-group.p-button-success > .p-button:not(:disabled):focus,
+.p-splitbutton.p-button-success > .p-button:not(:disabled):focus {
+  box-shadow: 0 0 0 0.02rem #c2e0a8;
+}
+
+.p-button.p-button-info:not(:disabled):focus,
+.p-button-group.p-button-info > .p-button:not(:disabled):focus,
+.p-splitbutton.p-button-info > .p-button:not(:disabled):focus {
+  box-shadow: 0 0 0 0.02rem #89d4fe;
+}
+
+.p-button.p-button-warning:not(:disabled):focus,
+.p-button-group.p-button-warning > .p-button:not(:disabled):focus,
+.p-splitbutton.p-button-warning > .p-button:not(:disabled):focus {
+  box-shadow: 0 0 0 0.02rem #fde6ab;
+}
+
+.p-button.p-button-danger:not(:disabled):focus,
+.p-button-group.p-button-danger > .p-button:not(:disabled):focus,
+.p-splitbutton.p-button-danger > .p-button:not(:disabled):focus {
+  box-shadow: 0 0 0 0.02rem #edacac;
+}
+
+.p-button.p-button-secondary:not(:disabled):focus,
+.p-button-group.p-button-secondary > .p-button:not(:disabled):focus,
+.p-splitbutton.p-button-secondary > .p-button:not(:disabled):focus {
+  box-shadow: 0 0 0 0.02rem #beccd2;
+}
+
+// 徽标
+$badgeSize: 0.16rem;
+.p-badge {
+  min-width: $badgeSize;
+  height: $badgeSize;
+  line-height: $badgeSize;
+}
+
+// 消息
+.p-toast {
+  width: 2rem;
+  .p-toast-message {
+    .p-toast-message-content {
+      padding: 0.1rem;
+
+      .p-toast-message-icon.p-icon {
+        width: 0.2rem;
+        height: 0.2rem;
+      }
+    }
+
+    .p-toast-icon-close {
+      width: 0.16rem;
+      height: 0.16rem;
+    }
+  }
+}

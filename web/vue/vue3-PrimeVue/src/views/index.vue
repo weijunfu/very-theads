@@ -3,7 +3,5 @@
     <ButtonIntro />
   </div>
 </template>
-<script setup lang="ts">
-import ButtonIntro from '@/components/button/ButtonIntro/index.vue'
-</script>
+<script setup lang="ts"></script>
 <style scoped lang="scss"></style>

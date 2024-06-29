@@ -9,15 +9,16 @@
     <h2>基础</h2>
     <div class="info">
       <div class="row flex justify-content-center top2">
-        <Button label="提交" />
+        <Toast />
+        <Button label="提交" @click="showToast()" />
       </div>
     </div>
     <h2>链接</h2>
     <div class="info row flex justify-content-center top2">
       <Button class="button" label="Link" link />
-      <NuxtLink class="button" to="https://weijunfu.github.io" target="_blank" rel="noopener">
+      <!-- <NuxtLink class="button" to="https://weijunfu.github.io" target="_blank" rel="noopener">
         <Button label="外链接" />
-      </NuxtLink>
+      </NuxtLink> -->
       <router-link class="button" to="/" target="_blank" rel="noopener">
         <Button label="Go Home(Router)" />
       </router-link>
@@ -117,13 +118,13 @@
     </div>
     <h2>徽章</h2>
     <div class="info top2">
-      <Button class="button" type="button" label="消息" :badge="2" badge-severity="danger" />
+      <Button class="button" type="button" label="消息" badge="2" badge-severity="danger" />
       <Button
         class="button"
         icon="pi pi-users"
         type="button"
         label="通知"
-        :badge="5"
+        badge="5"
         badge-severity="warning"
         outlined
       />
@@ -131,9 +132,9 @@
     <h2>按钮组</h2>
     <div class="info top2">
       <ButtonGroup>
-        <Button class="button" icon="pi pi-check" label="保存" />
-        <Button class="button" icon="pi pi-trash" label="删除" />
-        <Button class="button" icon="pi pi-times" label="关闭" />
+        <Button icon="pi pi-check" label="保存" />
+        <Button icon="pi pi-trash" label="删除" />
+        <Button icon="pi pi-times" label="关闭" />
       </ButtonGroup>
     </div>
     <h2>自定义按钮内容</h2>
@@ -161,8 +162,25 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-const loading = ref(false)
 
+import ButtonGroup from 'primevue/buttongroup'
+import Toast from 'primevue/toast'
+
+import { useToast } from 'primevue/usetoast'
+
+const toast = useToast()
+
+const showToast = function () {
+  toast.add({
+    severity: 'success',
+    summary: 'Hello',
+    detail: 'ijunfu',
+    life: 2000
+  })
+}
+
+// 带有加载状态的按钮
+const loading = ref(false)
 const load = () => {
   loading.value = true
 

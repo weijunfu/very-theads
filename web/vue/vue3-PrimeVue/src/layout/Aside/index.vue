@@ -1,59 +1,40 @@
 <template>
   <div class="aside">
-    <Tree :value="treeMenus" :filter="true" filterMode="lenient"></Tree>
+    <Tree
+      :value="treeMenus"
+      v-model:selectionKeys="selectedKey"
+      :filter="true"
+      filterMode="lenient"
+      @nodeSelect="onNodeSelect"
+    ></Tree>
   </div>
 </template>
 <script setup lang="ts">
-// import TreeNode from 'primevue/treenode'
+import { ref } from 'vue'
+
+const selectedKey = ref(null)
 
 const treeMenus = [
   {
     key: '1',
-    label: 'Document',
-    icon: 'pi pi-facebook'
+    label: '首页',
+    url: '/'
   },
   {
     key: '2',
-    label: 'Events',
-    icon: 'pi pi-twitter'
-  },
-  {
-    key: '3',
-    label: '爱心',
-    icon: 'pi pi-heart',
+    label: '组件',
     children: [
       {
-        key: '3-1',
-        label: 'Document'
-      },
-      {
-        key: '3-2',
-        label: 'Events'
-      }
-    ]
-  },
-  {
-    key: '4',
-    label: '爱心',
-    icon: 'pi pi-check',
-    children: [
-      {
-        key: '4-1',
-        label: 'Document'
-      },
-      {
-        key: '4-2',
-        label: 'Events',
-        children: [
-          {
-            key: '4-2-1',
-            label: '文档'
-          }
-        ]
+        key: '2-1',
+        label: '按钮'
       }
     ]
   }
 ]
+
+const onNodeSelect = (node) => {
+  console.log('node', node)
+}
 </script>
 <style scoped lang="scss">
 :deep(.p-tree .p-tree-container .p-treenode) {

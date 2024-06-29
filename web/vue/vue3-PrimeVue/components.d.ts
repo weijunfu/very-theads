@@ -16,6 +16,7 @@ declare module 'vue' {
     IconLogo: typeof import('./src/components/icons/IconLogo.vue')['default']
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
+    MyToast: typeof import('./src/components/messages/MyToast/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SplitButton: typeof import('primevue/splitbutton')['default']
