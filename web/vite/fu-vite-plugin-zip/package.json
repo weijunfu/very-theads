@@ -1,0 +1,33 @@
+{
+  "name": "fu-vite-plugin-zip",
+  "version": "1.0.0",
+  "description": "打包后,将输出目录压缩成为zip",
+  "main": "fuVitePluginZip.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weijunfu/very-theads.git"
+  },
+  "keywords": [
+    "vite",
+    "plugin",
+    "vue",
+    "zip"
+  ],
+  "author": "ijunfu <ijunfu@163.com> (https://weijunfu.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weijunfu/very-theads/issues"
+  },
+  "homepage": "https://github.com/weijunfu/very-theads#readme",
+  "dependencies": {
+    "archiver": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/archiver": "^6.0.2",
+    "@types/node": "^20.14.9"
+  }
+}
