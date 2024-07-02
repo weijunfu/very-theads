@@ -58,6 +58,7 @@
         <module>ijunfu-very-threads-pdfbox</module>
         <module>ijunfu-very-threads-easypoi</module>
         <module>ijunfu-very-threads-poi</module>
+        <module>ijunfu-very-threads-leveldb</module>
     </modules>
 
     <dependencyManagement>
