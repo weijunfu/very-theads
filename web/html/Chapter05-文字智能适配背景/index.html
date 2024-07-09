@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0; padding: 0; }
+
+        html,body {
+            width: 100vw;
+            height: auto;
+            min-height: 100vh;
+            overflow: hidden;
+            font-size: 16px;
+        }
+
+        .text {
+            width: 100%;
+            height: 20vh;
+            --direct: to top;
+            background: linear-gradient(var(--direct), #fff 50%, #000 50%);
+        }
+
+        .text:nth-of-type(2) {
+            --direct: to bottom;
+        }
+
+        .text:nth-of-type(3) {
+            --direct: to right;
+        }
+
+        .text:nth-of-type(4) {
+            --direct: to left;
+        }
+
+        .text .title {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            mix-blend-mode: difference;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <div class="title">
+            简洁的代码是智慧的结晶 卓越的编码是对复杂性的挑战
+        </div>
+    </div>
+    <div class="text">
+        <div class="title">
+            简洁的代码是智慧的结晶 卓越的编码是对复杂性的挑战
+        </div>
+    </div>
+    <div class="text">
+        <div class="title">
+            简洁的代码是智慧的结晶 卓越的编码是对复杂性的挑战
+        </div>
+    </div>
+    <div class="text">
+        <div class="title">
+            简洁的代码是智慧的结晶 卓越的编码是对复杂性的挑战
+        </div>
+    </div>
+</body>
+</html>
