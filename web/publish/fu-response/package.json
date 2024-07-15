@@ -1,0 +1,24 @@
+{
+  "name": "fu-response",
+  "version": "1.0.0",
+  "description": "基于TypeScript封装的统一响应体(Response)",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weijunfu/fu-response.git"
+  },
+  "keywords": [
+    "response",
+    "typescript"
+  ],
+  "author": "ijunfu <ijunfu@163.com> (https://weijunfu.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weijunfu/fu-response/issues"
+  },
+  "homepage": "https://github.com/weijunfu/fu-response#readme"
+}
