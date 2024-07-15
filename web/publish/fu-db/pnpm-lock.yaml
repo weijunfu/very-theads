@@ -1,0 +1,16 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  fu-response:
+    specifier: ^1.0.0
+    version: 1.0.0
+
+packages:
+
+  /fu-response@1.0.0:
+    resolution: {integrity: sha512-3Ea/BBXnH3Hx7XJfRVJ4yMWYxXGF0OfVdi7qEU7LLDrLdjgNydmYh3PWSROwzXE/3SYTG7oX4n2QB65T2VLCOw==}
+    dev: false
