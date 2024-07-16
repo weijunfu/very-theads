@@ -111,7 +111,7 @@ export default class FuDB {
             const store = transation.objectStore(this.storeName)
 
             data.forEach(item => {
-                store.add(data)
+                store.add(item)
             })
 
             transation.onsuccess = () => {

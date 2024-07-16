@@ -57,6 +57,15 @@ db.add({
 })
 ```
 
+### 批量添加数据
+```
+await db.addBatch([
+    { name: 'ijunfu', email: 'ijunfu@163.com', age: 18, gender: 1 },
+    { name: 'wei', email: 'ijunfu@qq.com', age: 16, gender: 1 },
+    { name: 'junfu', email: 'ijunfv@gmail.com', age: 20, gender: 0 }
+])
+```
+
 ### 根据id获取数据
 ```
 const user = await db.get(1)
