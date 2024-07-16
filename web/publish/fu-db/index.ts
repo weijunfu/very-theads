@@ -3,8 +3,18 @@ import { ok, fail } from 'fu-response'
 
 interface FuDBOptions {
     storeOptions: object,
+    index: Array<IndexOption>
+}
+
+interface StoreOption {
+    storeName: string
+    storeOption: object
+    indexOption: Array<IndexOption>
+}
+
+interface IndexOption {
     indexName: string
-    indexOptions: object
+    indexOption: object
 }
 
 export default class FuDB {
@@ -25,18 +35,7 @@ export default class FuDB {
      * @param unique 是否为唯一索引
      * @returns 
      */
-    init(
-        options: FuDBOptions = {
-            storeOptions: {
-                keyPath: 'id',
-                autoIncrement: true
-            }, 
-            indexName: '',
-            indexOptions: {
-                unique: false
-            }
-        }
-    ) {
+    init(options: FuDBOptions) {
         return new Promise((resolve, reject) => {
             // 创建数据库
             const request = indexedDB.open(this.dbName, this.version)
@@ -46,7 +45,11 @@ export default class FuDB {
             request.onupgradeneeded = (event) => {
                 this.db = event.target?.result
 
-                const { storeOptions, indexName, indexOptions } = options
+                const { storeOptions, index } = options
+
+                if(index && !Array.isArray(index)) {
+                    reject(fail(1, '索引配置格式错误'))
+                }
                 
                 // 创建存储，类似后端数据库中的表
                 if(!this.db.objectStoreNames.contains(this.storeName)) {
@@ -56,9 +59,13 @@ export default class FuDB {
                 }
 
                 // 创建索引
-                if(indexName && !store.indexNames.contains(indexName)) {
-                    store.createIndex(indexName, indexName, { indexOptions })
-                }
+                index.forEach(idx => {
+                    const { indexName, indexOption } = idx
+
+                    if(!store.indexNames.contains(indexName)) {
+                        store.createIndex(indexName, indexName, { ...indexOption })
+                    }
+                })
             }
 
             request.onsuccess = (event) => {
@@ -88,6 +95,30 @@ export default class FuDB {
             }
 
             request.onerror = (event) => {
+                reject(fail(1, "err", event.target?.error))
+            }
+        })
+    }
+
+    addBatch(data) {
+        return new Promise((resolve, reject)  => {
+
+            if(!Array.isArray(data)) {
+                reject(fail(1, '参数格式错误'))
+            }
+
+            const transation = this.db.transaction([this.storeName], 'readwrite')
+            const store = transation.objectStore(this.storeName)
+
+            data.forEach(item => {
+                store.add(data)
+            })
+
+            transation.onsuccess = () => {
+                resolve(ok(0, "ok"))
+            }
+
+            transation.onerror = (event) => {
                 reject(fail(1, "err", event.target?.error))
             }
         })
@@ -212,9 +243,95 @@ export default class FuDB {
     /**
      * 删除数据库
      */
-    deleteDatabase() {
-        if(this.dbName) {
-            indexedDB.deleteDatabase(this.dbName)
+    static deleteDatabase(dbName: string) {
+        if(dbName) {
+            indexedDB.deleteDatabase(dbName)
         }
+    }
+
+    /**
+     * 创建存储和索引
+     * @param dbName 数据库名称
+     * @param version 版本号
+     * @param stores 存储相关配置，包含索引配置
+     * @returns code=0 成功 code=1 失败
+     */
+    static createStore(dbName: string, version: number = 1, stores: Array<StoreOption>) {
+        return new Promise((resolve, reject) => {
+
+            if(!dbName) {
+                reject(fail(1,'数据库不能为空'))
+            }
+    
+            if(!Array.isArray(stores)) {
+                reject(fail(1,'配置内容不能为空'))
+            }
+
+            const request = indexedDB.open(dbName, version)
+
+            request.onupgradeneeded = (event) => {
+                const db = event.target?.result
+    
+                stores.forEach(e => {
+    
+                    const { storeName, storeOption, indexOption } = e
+                    
+                    if(!storeName) {
+                        reject(fail(1,'存储名称不能为空'))
+                    }
+
+                    if(!Array.isArray(indexOption)) {
+                        reject(fail(1,'索引配置应该为数组'))
+                    }
+    
+                    // 创建 Store, 类似数据库中的表
+                    let store
+                    if(!db.objectStoreNames.contains(storeName)) {
+                        store = db.createObjectStore(storeName, storeOption)
+                    } else {
+                        store = request.transaction?.objectStore(storeName)
+                    }
+    
+                    // 创建索引
+                    indexOption.forEach(index => {
+                        const { indexName,  indexOption } = index
+    
+                        if(indexName && !store.indexNames.contains(indexName)) {
+                            store.createIndex(indexName, indexName, { ...indexOption })
+                        }
+                    })
+    
+                })
+            }
+    
+            request.onsuccess = () => {
+                resolve(ok(0, 'ok'))
+            }
+    
+            request.onerror = (event) => {
+                reject(fail(1, 'err', event.target?.error))
+            }
+        })
+    }
+
+    /**
+     * 获取数据库版本号
+     * @param dbName 数据库名称
+     * @returns 数据库版本信息
+     */
+    static getVersion(dbName: string) {
+
+        return new Promise((resolve, reject) => {
+            const request  = indexedDB.open(dbName)
+
+            request.onsuccess = (event) => {
+                resolve(ok(0, 'ok', event.target?.result.version))
+            }
+
+            request.onerror = (event) => {
+                reject(fail(1, 'open db error: ' + event.target?.error))
+            }
+        })
+
     }
 }
