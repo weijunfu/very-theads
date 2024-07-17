@@ -4,24 +4,18 @@ import FuDB from '@weijunfu/fu-db'
 import { onMounted, version } from 'vue';
 
 onMounted(async () => {
-  const db = new FuDB('fu-db', "user", 2)
-  await db.init({
-    storeOptions: {
-        keyPath: 'id',
-        autoIncrement: true
-    },
-    index: [
-        { indexName: "name", indexOption: { unique: false } },
-        { indexName: "email", indexOption: { unique: false } }
-    ]
-}).then(res => console.log('db init', res)).catch(err => console.error('db init', err));
+  const dbName = 'fu-db'
+  const storeName = 'user'
 
-  await db.addBatch([
-    { name: 'ijunfu', email: 'ijunfu@163.com', age: 18, gender: 1 },
-    { name: 'wei', email: 'ijunfu@qq.com', age: 16, gender: 1 },
-    { name: 'junfu', email: 'ijunfv@gmail.com', age: 20, gender: 0 },
-  ])
-db.close()
+  FuDB.getVersion(dbName).then(res => {
+    const version = res.data
+
+    console.log(version)
+
+    FuDB.deleteStore(dbName, storeName, version+1)
+    .then(res => console.log('delete store', res))
+    .catch(err => console.log('delete store', err))
+  })
 })
 
 </script>

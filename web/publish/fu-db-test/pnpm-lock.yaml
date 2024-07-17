@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@weijunfu/fu-db':
-    specifier: ^1.1.1
-    version: 1.1.1
+    specifier: ^1.1.2
+    version: 1.1.2
   vue:
     specifier: ^3.4.21
     version: 3.4.31(typescript@5.4.5)
@@ -532,8 +532,8 @@ packages:
     resolution: {integrity: sha512-VcZK7MvpjuTPx2w6blwnwZAu5/LgBUtejFOi3pPGQFXQN5Ela03FUtd2Qtg4yWGGissVL0dr6Ro1LfOFh+PCuQ==}
     dev: true
 
-  /@weijunfu/fu-db@1.1.1:
-    resolution: {integrity: sha512-Oj3tX0bMnWo69GTU3YjNPJgOIkv/iYkgNjlYIl3BXR8W5UVz1pkPiyE0Qx5T1Donm2vtOhUb3nb8DQfEW/Lhpg==}
+  /@weijunfu/fu-db@1.1.2:
+    resolution: {integrity: sha512-IaW/f6lNXdbqTarLIk2pZn6hEOWa5SbupvAVhG3+FAddm0aaJwTi/3JjjnpgYKtETh5nYjMLz14mcWdmxZ9Z9w==}
     dependencies:
       fu-response: 1.0.0
     dev: false

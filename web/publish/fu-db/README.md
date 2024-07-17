@@ -111,6 +111,11 @@ await FuDB.getVersion('fu-db').then(res => console.log('db version', res)).catch
 FuDB.deleteDatabase('fu-db')
 ```
 
+### 删除存储
+```
+await FuDB.deleteStore('fu-db', 'user', 2)
+```
+
 ### 批量创建存储
 ```
 await FuDB.createStore(

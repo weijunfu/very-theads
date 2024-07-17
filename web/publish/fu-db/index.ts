@@ -315,6 +315,34 @@ export default class FuDB {
     }
 
     /**
+     * 删除存储
+     * @param dbName 数据库名称
+     * @param storeName 存储名称/表名
+     * @param version 版本号
+     * @returns 
+     */
+    static deleteStore(dbName: string, storeName: string, version: number = 1) {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open(dbName, version)
+
+            request.onupgradeneeded = (event) => {
+                const db = event.target?.result
+                if(db) {
+                    db.deleteObjectStore(storeName)
+                }
+            }
+
+            request.onsuccess = () => {
+                resolve(ok(0))
+            }
+
+            request.onerror = (event) => {
+                reject(fail(1, 'err', event.target?.error));
+            }
+        })
+    }
+
+    /**
      * 获取数据库版本号
      * @param dbName 数据库名称
      * @returns 数据库版本信息
