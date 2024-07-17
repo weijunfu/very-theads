@@ -23,10 +23,26 @@ export default class FuDB {
     version: number
     db: any
     constructor(dbName: string, storeName: string, version: number=1) {
+
+        this.isFalse(dbName, 'dbName cannot be empty')
+        
+        this.isFalse(storeName, 'storeName cannot be empty')
+        
         this.dbName = dbName
         this.storeName = storeName
         this.version = version
         this.db = null
+    }
+
+    /**
+     * 如果conditions条件为false，则抛出异常
+     * @param conditions 条件
+     * @param tips 提示信息
+     */
+    isFalse(conditions: any, tips: string) {
+        if(!conditions) {
+            throw new Error(tips)
+        }
     }
 
     /**
@@ -35,38 +51,10 @@ export default class FuDB {
      * @param unique 是否为唯一索引
      * @returns 
      */
-    init(options: FuDBOptions) {
+    init() {
         return new Promise((resolve, reject) => {
             // 创建数据库
             const request = indexedDB.open(this.dbName, this.version)
-
-            let store;
-
-            request.onupgradeneeded = (event) => {
-                this.db = event.target?.result
-
-                const { storeOptions, index } = options
-
-                if(index && !Array.isArray(index)) {
-                    reject(fail(1, '索引配置格式错误'))
-                }
-                
-                // 创建存储，类似后端数据库中的表
-                if(!this.db.objectStoreNames.contains(this.storeName)) {
-                    store = this.db.createObjectStore(this.storeName, storeOptions);
-                } else {
-                    store = request.transaction?.objectStore(this.storeName)
-                }
-
-                // 创建索引
-                index.forEach(idx => {
-                    const { indexName, indexOption } = idx
-
-                    if(!store.indexNames.contains(indexName)) {
-                        store.createIndex(indexName, indexName, { ...indexOption })
-                    }
-                })
-            }
 
             request.onsuccess = (event) => {
                 this.db = event.target?.result
@@ -80,12 +68,24 @@ export default class FuDB {
     }
 
     /**
+     * 校验DB
+     * @param reject 
+     */
+    checkDB(reject) {
+        if(!this.db) {
+            reject(fail(1, 'not initialized!'))
+        }
+    }
+
+    /**
      * 插入数据
      * @param data 数据
      * @returns 
      */
     add(data) {
         return new Promise((resolve, reject)  => {
+            this.checkDB(reject)
+
             const transation = this.db.transaction([this.storeName], 'readwrite')
             const store = transation.objectStore(this.storeName)
             const request = store.add(data)
@@ -102,6 +102,7 @@ export default class FuDB {
 
     addBatch(data) {
         return new Promise((resolve, reject)  => {
+            this.checkDB(reject)
 
             if(!Array.isArray(data)) {
                 reject(fail(1, '参数格式错误'))
@@ -131,6 +132,8 @@ export default class FuDB {
      */
     get(keyPath) {
         return new Promise((resolve, reject) => {
+            this.checkDB(reject)
+
             const transation = this.db.transaction([this.storeName])
             const store = transation.objectStore(this.storeName)
             const request = store.get(keyPath)
@@ -151,6 +154,8 @@ export default class FuDB {
      */
     getAll() {
         return new Promise((resolve, reject) => {
+            this.checkDB(reject)
+
             const transation = this.db.transaction([this.storeName])
             const store = transation.objectStore(this.storeName)
             const request = store.getAll()
@@ -172,6 +177,8 @@ export default class FuDB {
      */
     update(data) {
         return new Promise((resolve, reject) => {
+            this.checkDB(reject)
+
             const transation = this.db.transaction([this.storeName], 'readwrite')
             const store = transation.objectStore(this.storeName)
             const request = store.put(data)
@@ -193,6 +200,8 @@ export default class FuDB {
      */
     delete(keyPath) {
         return new Promise((resolve, reject) => {
+            this.checkDB(reject)
+
             const transation = this.db.transaction([this.storeName], 'readwrite')
             const store = transation.objectStore(this.storeName)
             const request = store.delete(keyPath)
@@ -209,17 +218,20 @@ export default class FuDB {
 
     /**
      * 查询数据
-     * @param indexName 
-     * @param value 
+     * @param indexName     索引名称
+     * @param indexValue    索引列中的值
      * @returns 
      */
-    queryByIndex(indexName: string, value: any) {
+    queryByIndex(indexName: string, indexValue: any) {
         return new Promise((resolve, reject) => {
+            
+            this.checkDB(reject)
+
             const transation = this.db.transaction([this.storeName], 'readwrite')
             const store = transation.objectStore(this.storeName)
             const index = store.index(indexName)
 
-            const request = index.getAll(value)
+            const request = index.getAll(indexValue)
 
             request.onsuccess = () => {
                 resolve(ok(0, "ok", request.result))
@@ -229,6 +241,75 @@ export default class FuDB {
                 reject(fail(1, "err", event.target?.error))
             }
         })
+    }
+
+    /**
+     * 复合查询
+     * 1. 先根据索引查询数据
+     * 2. 针对查询的数据，再根据属性名和属性值进一步筛选
+     * @param indexName     索引名称 
+     * @param indexValue    索引列中的值
+     * @param attr          属性名
+     * @param attrValue     属性值
+     * @returns 符合条件的数据集
+     */
+    queryByCondition(indexName: string, indexValue: any, attr: string, attrValue: any) {
+        return new Promise((resolve, reject) => {
+            
+            this.checkDB(reject)
+
+            const transation = this.db.transaction([this.storeName], 'readwrite')
+            const store = transation.objectStore(this.storeName)
+            const index = store.index(indexName)
+
+            const request = index.getAll(indexValue)
+
+            request.onsuccess = () => {
+                resolve(ok(0, "ok", request.result.filter(e => e[attr] === attrValue)))
+            }
+
+            request.onerror = (event) => {
+                reject(fail(1, "err", event.target?.error))
+            }
+        })
+    }
+
+    /**
+     * 查询指定范围的数据
+     * @param indexName 索引名称
+     * @param min 最小值
+     * @param max 最大值
+     * @returns 
+     */
+    queryByRang(indexName: string, min:number, max: number) {
+        return new Promise((resolve, reject) => {
+            this.checkDB(reject)
+
+            const store = this.db.transaction([this.storeName], 'readonly')
+                .objectStore(this.storeName)
+            
+            const index = store.index(indexName)
+            const range = IDBKeyRange.bound(min, max)
+
+            const request = index.openCursor(range)
+            let result = []
+            request.onsuccess = (event) => {
+                let cursor = event.target.result
+
+                if(cursor) {
+                    result.push(cursor.value)
+
+                    cursor.continue()
+                } else {
+                    resolve(ok(0, result))
+                }
+            }
+
+            request.onerror = (event) => {
+                reject(fail(1, "err", event.target?.error))
+            }
+        })
+        
     }
 
     /**
