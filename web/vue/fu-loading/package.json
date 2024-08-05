@@ -1,0 +1,28 @@
+{
+  "name": "fu-loading",
+  "version": "0.0.5",
+  "description": "基于Vue3+ElementPlus自定义封装全局loading",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weijunfu/very-theads.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "elementplus",
+    "typescript"
+  ],
+  "author": "ijunfu <ijunfu@163.com> (https://weijunfu.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weijunfu/very-theads/issues"
+  },
+  "homepage": "https://github.com/weijunfu/very-theads#readme",
+  "dependencies": {
+    "element-plus": "^2.7.8"
+  }
+}
