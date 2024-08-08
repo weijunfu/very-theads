@@ -1,0 +1,24 @@
+{
+  "name": "fu-publish-time",
+  "version": "0.0.1",
+  "description": "发布时间转换: 刚刚、N分钟前、N小时前、N周前、N月前、超过一年直接显示时间",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weijunfu/very-theads.git"
+  },
+  "keywords": [
+    "time",
+    "date",
+    "formart"
+  ],
+  "author": "ijunfu <ijunfu@163.com> (https://weijunfu.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weijunfu/very-theads/issues"
+  },
+  "homepage": "https://github.com/weijunfu/very-theads#readme"
+}
