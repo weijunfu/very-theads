@@ -1,9 +1,37 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 
+import { ElLoading } from 'element-plus'
+
+import { startLoading, endLoading} from 'fu-loading'
+
+
 const changeSize = (e) => {
   console.log(e)
+
+  // const loading = ElLoading.service({
+  //   lock: true,
+  //   text: 'Loading',
+  //   background: 'rgba(0, 0, 0, 0.7)',
+  // })
+  
+  startLoading()
+  startLoading()
+
+  // FuLoading.startLoading()
+
+  setTimeout(()=> {
+    endLoading()
+    
+    setTimeout(()=> {
+      endLoading()
+    }, 3000)
+
+  }, 3000)
+
+
 }
 </script>
 
