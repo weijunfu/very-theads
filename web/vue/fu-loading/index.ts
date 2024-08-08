@@ -10,12 +10,12 @@ let counter: number = 0
 export function startLoading(loadingText: string = 'Loading...') {
   if (!globalLoading) {
     globalLoading = ElLoading.service({
-      fullscreen: true,
-      text: loadingText,
+      fullscreen: true,                         // 全屏
+      text: loadingText,                        // 加载文案
       lock: true,
       spinner: 'el-icon-loading',
-      background: 'rgba(0, 0, 0, 0.7)',
-      zIndex: 999999,
+      background: 'rgba(0, 0, 0, 0.7)',         // 遮罩层背景色
+      customClass: 'fu-loading'                 // 自定义类名
     })
   }
 
