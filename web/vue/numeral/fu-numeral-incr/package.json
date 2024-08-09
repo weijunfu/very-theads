@@ -1,0 +1,26 @@
+{
+  "name": "fu-numeral-incr",
+  "version": "0.0.1",
+  "description": "[UI-VUE] 递增数字组件",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/weijunfu/very-theads.git"
+  },
+  "keywords": [
+    "ui",
+    "number",
+    "numeral",
+    "vue",
+    "typescript"
+  ],
+  "author": "ijunfu <ijunfu@163.com> (https://weijunfu.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/weijunfu/very-theads/issues"
+  },
+  "homepage": "https://github.com/weijunfu/very-theads#readme"
+}
