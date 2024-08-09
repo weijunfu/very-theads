@@ -1,0 +1,34 @@
+
+#app {
+    height: calc(100vh * 3);
+    width: 100vw;
+    background-color: blueviolet;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter {
+    position: relative;
+    transition: all 0.5s ease-in-out;
+}
+
+.counter:not(:last-child) {
+    margin-right: 2em;
+}
+
+.counter:not(:last-child)::after {
+    content: '';
+    width: 2px;
+    height: 60%;
+    background-color: #fff;
+    position: absolute;
+    top:30%;
+    right: -1rem;
+}
+
+.counter>span:nth-child(1) {
+    font-size: 3em;
+}
