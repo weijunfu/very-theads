@@ -1,6 +1,10 @@
 <script setup lang="ts">
 
 import { ref } from 'vue'
+
+import FuNumeralIncr from './FuNumeralIncr.vue'
+
+
 const author = ref('ijunfu')
 
 defineProps<{
@@ -12,6 +16,8 @@ defineProps<{
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
     <fu-button-flowing :text="author" />
+    <fu-numeral-incr :count="200" />
+    <fu-numeral-incr :count="400" unit="$" />
   </div>
 </template>
 
