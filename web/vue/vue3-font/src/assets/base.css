@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'ITCNovareseMed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('ITCNovareseMed'),
+    url('SwarovskiITCNovarese-Medium-Cyrillic.woff2?v=20240617-1012') format('woff2'),
+    url('SwarovskiITCNovarese-Medium-Cyrillic.woff?v=20240617-1012') format('woff'),
+    url('SwarovskiITCNovarese-Medium-Cyrillic.ttf?v=20240617-1012') format('truetype');
+  unicode-range: U+0400-045F;
+}
+
+@font-face {
+  font-family: 'EuclidIgnited';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('EuclidIgnited'),
+    url('SwarovskiEuclidIgnited-Regular-Cyrillic.woff2?v=20240617-1012') format('woff2'),
+    url('SwarovskiEuclidIgnited-Regular-Cyrillic.woff?v=20240617-1012') format('woff'),
+    url('SwarovskiEuclidIgnited-Regular-Cyrillic.ttf?v=20240617-1012') format('truetype');
+  unicode-range: U+0400-045F;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}

@@ -1,5 +1,5 @@
 <template>
-    <div class="player-wrapper">
+    <div class="player-wrapper" v-if="videoId">
         <!-- 封面 -->
         <img :class="['youtube-poster', videoLoaded?'hidden':'']" :src="poster" alt="Youtube Poster,fu-youtube,ijunfu"/>
         

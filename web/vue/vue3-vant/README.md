@@ -140,7 +140,7 @@ export default defineConfig({
 #### PostCSS示例配置
 下面提供了一份基本的 PostCSS 示例配置，可以在此配置的基础上根据项目需求进行修改。
 ```javascript
-// postcss.config.js
+// postcss.config.cjs
 module.exports = {
   plugins: {
     'postcss-pxtorem': {
@@ -157,7 +157,7 @@ module.exports = {
 #### 其他设计稿尺寸
 如果设计稿的尺寸不是`375`，而是`750`或其他大小，可以将`rootValue`配置调整为:
 ```
-// postcss.config.js
+// postcss.config.cjs
 module.exports = {
   plugins: {
     // postcss-pxtorem 插件的版本需要 >= 5.0.0
@@ -170,6 +170,12 @@ module.exports = {
   },
 };
 ```
+
+#### 关于PostCSS配置介绍
+
++ `Autoprefixer`插件可实现自动添加浏览器相关的声明前缀
++ `PostCSS Preset Env`插件可以让你使用更新的CSS语法特性并实现向下兼容
++ `postcss-pxtorem`可以实现将`px`转换为`rem`
 
 ### 3.2 桌面端适配
 Vant是一个面向移动端的组件库，因此默认只适配了移动端设备，这意味着组件只监听了移动端的`touch`事件，没有监听桌面端的`mouse`事件。
@@ -201,3 +207,94 @@ iPhone X 等机型底部存在底部指示条，指示条的操作区域与页�
 <!-- 开启底部安全区适配 -->
 <van-number-keyboard safe-area-inset-bottom />
 ```
+
+## 四、封装 `axios`
+
+### 4.1 安装 `axios`
+
+```
+npm install axios
+```
+
+### 4.2 封装
+
+```
+import axios from 'axios'
+
+const request = axios.create({
+    baseURL: "/"
+})
+
+export default request
+
+```
+
+## 五、创建登录路由
+
+### 5.1 安装路由
+```
+npm install vue-router@4
+```
+
+### 5.2 路由配置
+```
+// router/index.ts
+import { createRouter, createWebHashHistory } from 'vue-router'
+
+// Step 1 创建路由规则
+const routes = [
+    {
+        path: '/login',
+        name: 'Login',
+        component: () => import("../views/login/index.vue")
+    }
+]
+// Step 2 创建路由实例
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes
+})
+
+// Step 3 指定出口
+export default router
+```
+
+### 5.3 挂载到Vue
+```
+// main.ts
+
+import router from './router'
+
+app.use(router)
+
+```
+
+### 5.4 页面配置
+```
+// App.vue
+<template>
+  <router-view></router-view>
+</template>
+```
+
+### 5.5 创建登录页面
+```
+// views/login/index.vue
+
+<template>
+<!-- 登录 -->
+<div class="login">
+    <h2>登录</h2>
+</div>
+</template>
+<script setup lang="ts">
+
+</script>
+<style scoped lang="scss">
+
+</style>
+```
+
+### 5.5 访问测试
+
+访问`http://localhost:5173/#/login`

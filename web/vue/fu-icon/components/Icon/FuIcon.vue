@@ -1,6 +1,6 @@
 <template>
 <svg :class="svgClass" aria-hidden="true" fill="currentColor">
-    <use :xlink:href="iconName" :fill="color"></use>
+    <use :xlink:href="iconName"></use>
 </svg>
 </template>
 <script setup lang="ts">
@@ -10,11 +10,6 @@ const props = defineProps({
     iconClass: {
         type: String,
         required: true
-    },
-    color: {
-        type: String,
-        required: false,
-        default: '#222'
     }
 })
 

@@ -1,6 +1,6 @@
 {
   "name": "fu-size",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "自定义封装resize指令",
   "main": "index.ts",
   "scripts": {
