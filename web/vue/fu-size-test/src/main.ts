@@ -15,4 +15,7 @@ app.directive('fu-size', FuSize)
 import FuButtonFlowing from 'fu-button-flowing'
 app.use(FuButtonFlowing);
 
+import FuMediaImage5 from 'fu-media-image5';
+app.use(FuMediaImage5);
+
 app.mount('#app')

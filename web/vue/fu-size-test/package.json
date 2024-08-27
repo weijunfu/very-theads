@@ -14,6 +14,7 @@
     "element-plus": "^2.7.8",
     "fu-button-flowing": "^0.0.3",
     "fu-loading": "^0.0.4",
+    "fu-media-image5": "^0.0.2",
     "fu-size": "^0.0.1",
     "vue": "^3.4.21"
   },

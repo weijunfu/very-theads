@@ -27,7 +27,7 @@ html, body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border: 1px solid #222;
+    border: min(.1vw, .1vh) solid #222;
 }
 
 .app .item:nth-child(1) {
