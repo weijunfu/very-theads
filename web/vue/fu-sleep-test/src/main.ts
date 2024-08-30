@@ -17,6 +17,9 @@ app.use(FuSleep)
 import FuNumeralIncr from 'fu-numeral-incr'
 app.use(FuNumeralIncr)
 
+import MavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+app.use(MavonEditor)
 
 app.use({
   install(app) {
