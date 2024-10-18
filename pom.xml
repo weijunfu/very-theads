@@ -29,6 +29,7 @@
     </properties>
 
     <modules>
+        <module>columns_chapter001_http</module>
         <module>ijunfu-very-threads-common</module>
         <module>ijunfu-very-threads-upload</module>
         <module>ijunfu-very-threads-encrypt-api</module>
