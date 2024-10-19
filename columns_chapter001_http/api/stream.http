@@ -1,0 +1,14 @@
+### 流式请求方式一: HttpServletResponse
+GET http://localhost:8080/stream/download
+accept: application/octet-stream
+
+### 流式请求方式二: StreamingResponseBody
+GET http://localhost:8080/stream/slow
+
+### 流式请求方式三；Flux
+GET http://localhost:8080/stream/flux
+accept: text/event-stream
+
+### 流式请求方式四：SSE
+GET http://localhost:8080/stream/sse
+accept: text/event-stream
