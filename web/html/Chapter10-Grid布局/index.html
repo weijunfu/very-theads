@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grid布局|ijunfu</title>
+    <meta name="author" content="ijunfu">
+    <style type="text/css">
+        :root {
+            --bg-color: #646cff;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 列 */
+            grid-template-rows: repeat(5, 100px);  /* 5 行 */
+            gap: 10px;
+            color: #f0f0f0;
+        }
+
+        .item {
+            background-color: var(--bg-color);
+            border: 1px dotted red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .item:nth-child(1) {
+            grid-column: span 2; /* 跨 2 列 */
+        }
+
+        .item:nth-child(3) {
+            grid-column: 3 / 5;  /* 从第 3 列开始，跨到第 5 列 */
+        }
+
+        .item:nth-child(5) {
+            grid-row: span 2;    /* 跨 2 行 */
+        }
+
+        .item:nth-child(7) {
+            grid-column: span 2; /* 跨 2 列 */
+            grid-row: span 2;    /* 跨 2 行 */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+</div>
+</body>
+</html>
