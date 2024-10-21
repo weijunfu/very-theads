@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>等比例缩放示例</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            transform-origin: top left; /* 设置缩放中心 */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <h1>欢迎来到我的网站</h1>
+        <p>这是一个等比例缩放的示例页面。</p>
+        <button id="zoom-in">放大</button>
+        <button id="zoom-out">缩小</button>
+    </div>
+</div>
+
+<script>
+    let scale = 1;
+
+    document.getElementById('zoom-in').addEventListener('click', () => {
+        scale += 0.1; // 每次放大10%
+        document.body.style.transform = `scale(${scale})`;
+    });
+
+    document.getElementById('zoom-out').addEventListener('click', () => {
+        scale = Math.max(scale - 0.1, 0.1); // 每次缩小10%，最低0.1
+        document.body.style.transform = `scale(${scale})`;
+    });
+</script>
+</body>
+</html>
