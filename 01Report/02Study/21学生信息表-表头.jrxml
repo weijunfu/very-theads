@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.0.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="20学生信息表-表格" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eedf52a6-20fd-447d-99ff-967dec84432c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="FuPdf"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="DS_StudentScore" uuid="8e974398-7cb9-45b8-9158-1e491992036a">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="FuPdf"/>
+		<queryString language="SQL">
+			<![CDATA[select * from patient]]>
+		</queryString>
+		<field name="id" class="java.lang.Long">
+			<property name="com.jaspersoft.studio.field.name" value="id"/>
+			<property name="com.jaspersoft.studio.field.label" value="id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="patient"/>
+		</field>
+		<field name="name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="name"/>
+			<property name="com.jaspersoft.studio.field.label" value="name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="patient"/>
+			<fieldDescription><![CDATA[姓名]]></fieldDescription>
+		</field>
+		<field name="age" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="age"/>
+			<property name="com.jaspersoft.studio.field.label" value="age"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="patient"/>
+			<fieldDescription><![CDATA[年龄]]></fieldDescription>
+		</field>
+		<field name="gender" class="java.lang.Integer">
+			<property name="com.jaspersoft.studio.field.name" value="gender"/>
+			<property name="com.jaspersoft.studio.field.label" value="gender"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="patient"/>
+			<fieldDescription><![CDATA[性别]]></fieldDescription>
+		</field>
+		<field name="phone" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="phone"/>
+			<property name="com.jaspersoft.studio.field.label" value="phone"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="patient"/>
+			<fieldDescription><![CDATA[号码]]></fieldDescription>
+		</field>
+		<field name="address" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="address"/>
+			<property name="com.jaspersoft.studio.field.label" value="address"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="patient"/>
+			<fieldDescription><![CDATA[地址]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[select
+    s.name as student_name,
+    c.name as course_name,
+    cs.score
+from student s
+join course_score cs on cs.id_student = s.id
+join course c on c.id = cs.id_course]]>
+	</queryString>
+	<field name="student_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="student_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="student"/>
+	</field>
+	<field name="course_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="course_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="course"/>
+	</field>
+	<field name="score" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="score"/>
+		<property name="com.jaspersoft.studio.field.label" value="score"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="course_score"/>
+		<fieldDescription><![CDATA[成绩]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="23" width="120" height="30" uuid="46cf8860-a040-4bb4-8cb3-513221e43841">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="宋体" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[学生成绩表]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="348" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" stretchType="ElementGroupHeight" x="0" y="30" width="560" height="220" uuid="f349ea36-1ce7-4420-8fdf-3eb0ceb186c0">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="DS_StudentScore" uuid="11538b0b-17f8-48e0-88ce-aa93d7bb6da8">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:columnGroup width="150" uuid="aeb84410-f3ea-41bc-8294-9fd152586431">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [2]"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="150" height="30" uuid="69d61eed-aa42-478b-b314-32f85a5cc739"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="宋体" size="16" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["序号"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:column width="70" uuid="27ae54ad-9e14-4d80-8ffe-f52942372d23">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+							<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="70" height="30" uuid="70c0b4e8-6923-42c4-9226-dd29fd1bac00"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["报表序号"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="0" width="70" height="30" uuid="ecbaa7ff-621b-47b2-af40-ccf4e7ed8683">
+										<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+									</reportElement>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="ec42c557-f3f6-4aa9-b0fb-b0208b9bb5d6">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<textField>
+									<reportElement x="0" y="0" width="80" height="30" uuid="9a125416-25cf-4663-8b4a-b39f5c688e3b"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["页面序号"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="0" width="80" height="30" uuid="fbb49381-cf10-41a3-a70a-5610363e0390"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$V{PAGE_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:columnGroup width="230" uuid="096871e3-2e10-433e-a637-d1c9fc3a3518">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Columns [3]"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="230" height="30" uuid="4dff8404-dd4b-4a41-b96d-fe1d517248bd"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="宋体" size="16" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["用户信息"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:column width="80" uuid="e9831875-d7bb-48d1-85b5-ee1d01db390f">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+							<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="80" height="30" uuid="0d416b79-d671-4d14-be10-4263f64e0010"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["姓名"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="0" width="80" height="30" uuid="02a65b1b-5a8b-43cd-899e-999e88eb7c45"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="70" uuid="8b77f188-f2ab-4304-8e3e-cb9273824118">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<textField>
+									<reportElement x="0" y="0" width="70" height="30" uuid="3199aa24-cb0f-475b-aa80-1c4f5ad04b12"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["年龄"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="0" width="70" height="30" uuid="2e051316-8c02-4993-a7e8-559746c57be4"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{age}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="80" uuid="e7481bf6-e704-4373-ac92-091b78ae8a8f">
+							<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<textField>
+									<reportElement x="0" y="0" width="80" height="30" uuid="be920664-0d6f-4fc2-814b-abb7664057ea"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16" isBold="true"/>
+									</textElement>
+									<textFieldExpression><![CDATA["性别"]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="0" width="80" height="30" uuid="4635e419-ec5b-46b3-92c6-6e774bbeb643"/>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font fontName="宋体" size="16"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{gender} > 0 ? "女" : "男"]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:column width="90" uuid="dc12e899-240a-455f-946c-9e84f83eb84a">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+						<jr:columnHeader style="Table_CH" height="60" rowSpan="2">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="60" uuid="0c16ff30-0d24-4e55-a913-c9808f2e2933"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="宋体" size="16" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["号码"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="0" width="90" height="30" uuid="70303879-db62-4eca-98c1-14d65f65e2d5">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="宋体" size="14"/>
+									<paragraph leftIndent="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="72ce454a-8057-4b8b-9a81-a871859c265d">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column7"/>
+						<jr:columnHeader style="Table_CH" height="60" rowSpan="2">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="60" uuid="ea27e46a-ef29-4cd9-9ff0-fdd7b4291ad8"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="宋体" size="16" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["地址"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField isBlankWhenNull="true">
+								<reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="0" width="90" height="30" uuid="48a89a82-9939-42ed-bf2e-51b2071bf1ae">
+									<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+								</reportElement>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="宋体" size="14"/>
+									<paragraph leftIndent="10"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>
