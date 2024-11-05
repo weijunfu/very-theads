@@ -137,3 +137,9 @@ FuDB.deleteDatabase('fu-db')
 ```
 await FuDB.deleteStore('fu-db', 'user', 2)
 ```
+
+### 判断存储/表名是否存在
+> `user`存储/表名是否存在
+```
+await FuDB.existStore('fu-db', 'user')
+```

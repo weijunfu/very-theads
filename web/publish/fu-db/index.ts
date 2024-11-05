@@ -434,13 +434,53 @@ export default class FuDB {
             const request  = indexedDB.open(dbName)
 
             request.onsuccess = (event) => {
-                resolve(ok(0, 'ok', event.target?.result.version))
+                const db = event.target.result
+                
+                const version = db.version;
+
+                db.close()
+
+                resolve(ok(0, 'ok', version))
             }
 
             request.onerror = (event) => {
+                console.error('Failed to open database:', event.target.error);
                 reject(fail(1, 'open db error: ' + event.target?.error))
             }
         })
 
+    }
+
+    /**
+     * 判断存储/表名是否存在
+     * @param dbName 数据库名称
+     * @param storeName 存储名、表名
+     * @returns 
+     */
+    static existStore(dbName: string, storeName: string) {
+        
+        return new Promise((resolve, reject) => {
+            if(!dbName) {
+                reject(fail(1,'数据库不能为空'))
+            }
+    
+            if(!Array.isArray(storeName)) {
+                reject(fail(1,'配置内容不能为空'))
+            }
+
+            const request = indexedDB.open(dbName);
+
+            request.onsuccess = (event) => {
+                const db = event.target.result
+                const exists = db.objectStoreNames.contains(storeName)
+                db.close()
+                resolve(ok(0, 'ok', exists))
+            }
+
+            request.onerror = (event) => {
+                console.error('Failed to open database:', event.target.error);
+                reject(fail(1, 'open db error: ' + event.target?.error))
+            }
+        })
     }
 }
